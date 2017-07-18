@@ -2,8 +2,7 @@
 namespace backend\models;
 use yii\db\ActiveRecord;
 
-class Brand extends ActiveRecord{
-    public $logoFile;  //logo对象
+class ArticleCategory extends ActiveRecord{
 
     public static function getStatus($del=true)
     {
@@ -23,7 +22,6 @@ class Brand extends ActiveRecord{
     {
         return [
             [['name','intro','sort','status'],'required','message'=>'{attribute}不能为空'],
-            ['logoFile','file','extensions'=>['jpg','png','gif']],
         ];
     }
 
@@ -34,7 +32,6 @@ class Brand extends ActiveRecord{
             'intro'=>'简介',
             'sort'=>'排序',
             'status'=>'状态',
-            'logoFile'=>'LOGO',
         ];
     }
 }

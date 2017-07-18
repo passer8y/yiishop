@@ -16,7 +16,7 @@
         <td><?= $model->intro ?></td>
         <td><?= \yii\helpers\Html::img([$model->logo],['height'=>50]) ?></td>
         <td><?= $model->sort ?></td>
-        <td><?= \backend\models\Brand::getStatus($model->status) ?></td>
+        <td><?= \backend\models\Brand::getIndexStatus($model->status) ?></td>
         <td>
             <?= \yii\helpers\Html::a('修改',['brand/edit','id'=>$model->id]) ?>
             <?= \yii\helpers\Html::a('删除',['brand/del','id'=>$model->id]) ?>
@@ -24,3 +24,6 @@
     </tr>
     <?php endforeach; ?>
 </table>
+<div class="text-right">
+    <?= \yii\widgets\LinkPager::widget(['pagination'=>$pager,'nextPageLabel'=>'下一页','prevPageLabel'=>'上一页','firstPageLabel'=>'首页']); ?>
+</div>
