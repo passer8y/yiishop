@@ -11,7 +11,7 @@ class BrandController extends Controller{
     public function actionIndex()
     {
         //分页
-        $query = Brand::find();
+        $query = Brand::find()->where('status>=0');
         //总条数
         $total = $query->count();
         //每页显示3条
@@ -21,7 +21,7 @@ class BrandController extends Controller{
             'totalCount'=>$total,
             'defaultPageSize'=>$perPage,
         ]);
-        $models = $query->limit($pager->limit)->offset($pager->offset)->all();
+        $models = $query->orderBy('sort')->limit($pager->limit)->offset($pager->offset)->all();
         //调用视图
         return $this->render('index',['models'=>$models,'pager'=>$pager]);
     }
