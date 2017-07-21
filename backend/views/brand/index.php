@@ -14,7 +14,7 @@
         <td><?= $model->id ?></td>
         <td><?= $model->name ?></td>
         <td><?= $model->intro ?></td>
-        <td><?= \yii\helpers\Html::img([$model->logo],['height'=>50]) ?></td>
+        <td><?= \yii\helpers\Html::img($model->logo,['height'=>50]) ?></td>
         <td><?= $model->sort ?></td>
         <td><?= \backend\models\Brand::getIndexStatus($model->status) ?></td>
         <td>
