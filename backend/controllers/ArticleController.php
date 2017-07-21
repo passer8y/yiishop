@@ -3,6 +3,7 @@ namespace backend\controllers;
 use backend\models\Article;
 use backend\models\ArticleCategory;
 use backend\models\ArticleDetail;
+use kucha\ueditor\UEditorAction;
 use yii\data\Pagination;
 use yii\web\Controller;
 use yii\web\Request;
@@ -82,5 +83,14 @@ class ArticleController extends Controller{
         $model->save();
         //跳转
         return $this->redirect(['article/index']);
+    }
+    //Ueditor
+    public function actions()
+    {
+        return[
+            'upload' => [
+                'class' => UEditorAction::className()
+            ]
+        ];
     }
 }
