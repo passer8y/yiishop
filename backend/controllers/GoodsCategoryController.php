@@ -97,12 +97,12 @@ class GoodsCategoryController extends \yii\web\Controller
     public function actionDel($id)
     {
         $model = GoodsCategory::findOne(['id'=>$id]);
-        $childs = GoodsCategory::findOne(['parent_id'=>$model->id]);
-        if(empty($childs)){
+        $child = GoodsCategory::findOne(['parent_id'=>$model->id]);
+        if(empty($child)){
             $model->delete();
             \Yii::$app->session->setFlash('success', '删除成功!!');
         }else{
-            \Yii::$app->session->setFlash('success', '下面有分类,不能删除!!');
+            \Yii::$app->session->setFlash('error', '下面有分类,不能删除!!');
         }
         //跳转
         return $this->redirect(['goods-category/index']);

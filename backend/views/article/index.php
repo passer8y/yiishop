@@ -1,5 +1,5 @@
 <?= \yii\bootstrap\Html::a('添加文章',['article/add'],['class'=>'btn btn-info btn-sm']) ?>
-<table class="table table-bordered table-condensed ">
+<table class="table table-bordered table-condensed">
     <tr class="text-center">
         <th>ID</th>
         <th>标题</th>

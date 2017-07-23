@@ -10,7 +10,7 @@
     <?php foreach($models as $model): ?>
     <tr>
         <td><?= $model->id ?></td>
-        <td><?= $model->name ?></td>
+        <td><?= str_repeat('—',$model['depth']).$model['name'] ?></td>
         <td><?= $model->intro ?></td>
         <td><?= $model->depth ?></td>
         <td>
