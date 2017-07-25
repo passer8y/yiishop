@@ -2,7 +2,7 @@
 use yii\web\JsExpression;
 $form = \yii\bootstrap\ActiveForm::begin();
 echo $form->field($goods,'name')->textInput(['disabled'=>'disabled']);
-echo $form->field($model,'path')->hiddenInput();
+//echo $form->field($model,'path[]')->hiddenInput();
 
 //外部TAG
 echo \yii\bootstrap\Html::fileInput('test', NULL, ['id' => 'test']);
@@ -32,7 +32,10 @@ function(file, data, response) {
         //将图片的地址赋值给logo字段
         $("#goodsgallery-path").val(data.fileUrl);
         //将上传成功的图片回显
-        $("#img").attr('src',data.fileUrl);
+        //$("#img").attr('src',data.fileUrl);
+        //生成一个隐藏的输入框
+        var html = '<input type="hidden" name="path[]" value="'+data.fileUrl+'">';
+        $("#submit_btn").before($(html));
     }
 }
 EOF
@@ -45,7 +48,7 @@ foreach($models as $paths){
     echo \yii\helpers\Html::a('删除',['goods-gallery/del','id'=>$paths->id],['class'=>'btn btn-xs btn-danger'])."<br />";
 }
 
-echo \yii\bootstrap\Html::submitButton('提交',['class'=>'btn btn-info']);
+echo \yii\bootstrap\Html::submitButton('提交',['class'=>'btn btn-info','id'=>'submit_btn']);
 \yii\bootstrap\ActiveForm::end();
 
 

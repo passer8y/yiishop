@@ -36,19 +36,24 @@ AppAsset::register($this);
         ],
     ]);
     $menuItems = [
-        ['label' => 'Home', 'url' => ['/site/index']],
+        ['label' => '首页', 'url' => ['/site/index']],
+        ['label' => '品牌列表', 'url' => ['/brand/index']],
+        ['label' => '文章管理', 'url' => ['/article/index']],
+        ['label' => '商品管理', 'url' => ['/goods/index']],
+        ['label' => '管理员列表', 'url' => ['/user/index']],
     ];
     if (Yii::$app->user->isGuest) {
-        $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
+        $menuItems[] = ['label' => '登录', 'url' => ['/user/login']];
     } else {
         $menuItems[] = '<li>'
-            . Html::beginForm(['/site/logout'], 'post')
+            . Html::beginForm(['/user/logout'], 'post')
             . Html::submitButton(
-                'Logout (' . Yii::$app->user->identity->username . ')',
+                '注销 (' . Yii::$app->user->identity->username . ')',
                 ['class' => 'btn btn-link logout']
             )
             . Html::endForm()
             . '</li>';
+        $menuItems[] =['label' => '修改密码', 'url' => ['/user/password']];
     }
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],

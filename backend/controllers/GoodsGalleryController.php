@@ -9,31 +9,38 @@ use yii\web\Request;
 
 class GoodsGalleryController extends \yii\web\Controller
 {
-    public function actionIndex($id)
+    public function actionIndex($id=null)
     {
 
         $num = $id;
-        $model = new GoodsGallery();
         $goods = Goods::findOne(['id'=>$num]);
-        $models = GoodsGallery::find()->where("goods_id=$num")->all();
+        $models = GoodsGallery::find()->where(['=','goods_id',$num])->all();
         $request = new Request();
         if($request->isPost){
-            $model -> load($request->post());
+            foreach(\Yii::$app->request->post('path') as $path){
+                $model = new GoodsGallery();
+                $model->goods_id = $id;
+                $model->path = $path;
+                $model->save();
+            }
+            return $this->redirect(['goods-gallery/index','id'=>$num]);
+            /*$model -> load($request->post());
             if($model->validate()){
                 $model->goods_id = $num;
                 $model->save();
                 //跳转到当前页面
-                return $this->redirect(['goods/index']);
-            }
+                return $this->redirect(['goods-gallery/index','id'=>$num]);
+            }*/
         }
-        return $this->render('index',['model'=>$model,'goods'=>$goods,'models'=>$models]);
+        return $this->render('index',['goods'=>$goods,'models'=>$models]);
     }
 
     public function actionDel($id)
     {
+
         $model = GoodsGallery::findOne(['id'=>$id]);
         $model->delete();
-        return $this->redirect(['goods/index']);
+        return $this->redirect(['goods-gallery/index','id'=>$model->goods_id]);
     }
 
     public function actions() {
