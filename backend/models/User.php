@@ -2,7 +2,6 @@
 
 namespace backend\models;
 
-use Yii;
 use yii\db\ActiveRecord;
 use yii\web\IdentityInterface;
 
@@ -23,6 +22,7 @@ use yii\web\IdentityInterface;
  */
 class User extends ActiveRecord implements IdentityInterface
 {
+    public $roles=[];  //用户的角色
     /**
      * @inheritdoc
      */
@@ -44,7 +44,9 @@ class User extends ActiveRecord implements IdentityInterface
             [['last_login_ip'], 'string', 'max' => 50],
             [['username'], 'unique'],
             [['email'], 'unique'],
+            ['roles','safe']
 //            [['password_reset_token'], 'unique'],
+
         ];
     }
 
@@ -60,11 +62,12 @@ class User extends ActiveRecord implements IdentityInterface
             'password_hash' => '密码',
             'password_reset_token' => 'Password Reset Token',
             'email' => '邮箱',
-            'status' => '是否是管理员',
+            'status' => '是否启用',
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
             'last_login_time' => '最后登录时间',
             'last_login_ip' => '最后登录IP',
+            'roles'=>'所属角色',
         ];
     }
 

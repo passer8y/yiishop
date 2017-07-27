@@ -5,6 +5,7 @@ namespace backend\controllers;
 use backend\models\LoginForm;
 use backend\models\PasswordForm;
 use backend\models\User;
+use yii\helpers\ArrayHelper;
 use yii\web\Controller;
 use yii\web\Request;
 
@@ -26,6 +27,16 @@ class UserController extends Controller
 //                var_dump($model);exit;
                 $model->password_hash = \Yii::$app->security->generatePasswordHash($model->password_hash);
                 $model->save();
+                //给用户赋予角色
+                $authManager = \Yii::$app->authManager;
+                if(is_array($model->roles)){
+                    foreach($model->roles as $roleName){
+                        $role = $authManager->getRole($roleName);
+                        if($role){
+                            $authManager->assign($role,$model->id);
+                        }
+                    }
+                }
                 return $this->redirect(['user/index']);
             }
         }
@@ -36,6 +47,9 @@ class UserController extends Controller
         $model = User::findOne(['id'=>$id]);
         $password = $model->password_hash;
         $request = new Request();
+        $authManager = \Yii::$app->authManager;
+        $roles = $authManager->getRolesByUser($id);
+        $model->roles = ArrayHelper::map($roles,'name','name');
         if($request->isPost){
             $model->load($request->post());
             if($model->validate()){
@@ -46,6 +60,17 @@ class UserController extends Controller
                     $model->password_hash = \Yii::$app->security->generatePasswordHash($model->password_hash);
                 }
                 $model->save();
+                //取消用户和角色的关联
+                $authManager->revokeAll($id);
+                //给用户重新赋予角色
+                if(is_array($model->roles)){
+                    foreach($model->roles as $roleName){
+                        $role = $authManager->getRole($roleName);
+                        if($role){
+                            $authManager->assign($role,$model->id);
+                        }
+                    }
+                }
                 return $this->redirect(['user/index']);
             }
         }
