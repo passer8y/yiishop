@@ -2,6 +2,7 @@
 
 namespace backend\controllers;
 
+
 use backend\models\LoginForm;
 use backend\models\PasswordForm;
 use backend\models\User;
@@ -79,6 +80,8 @@ class UserController extends Controller
 
     public function actionDel($id)
     {
+        $authManager = \Yii::$app->authManager;
+        $authManager->revokeAll($id);
         $model = User::findOne(['id'=>$id]);
         $model->delete();
         return $this->redirect(['user/index']);
@@ -145,5 +148,6 @@ class UserController extends Controller
             return $this->redirect(['user/login']);
         }
     }
-    
+
+
 }

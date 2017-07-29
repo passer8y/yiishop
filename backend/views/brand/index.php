@@ -8,6 +8,7 @@
         <th>排序</th>
         <th>状态</th>
         <th>操作</th>
+
     </tr>
     <?php foreach($models as $model): ?>
     <tr>
@@ -18,9 +19,10 @@
         <td><?= $model->sort ?></td>
         <td><?= \backend\models\Brand::getIndexStatus($model->status) ?></td>
         <td>
-            <?= \yii\helpers\Html::a('修改',['brand/edit','id'=>$model->id]) ?>
-            <?= \yii\helpers\Html::a('删除',['brand/del','id'=>$model->id]) ?>
+            <?= Yii::$app->user->can('brand/edit') ? \yii\helpers\Html::a('修改',['brand/edit','id'=>$model->id]) : '' ?>
+            <?= Yii::$app->user->can('brand/del') ? \yii\helpers\Html::a('删除',['brand/del','id'=>$model->id]) : '' ?>
         </td>
+
     </tr>
     <?php endforeach; ?>
 </table>

@@ -2,6 +2,7 @@
 
 namespace backend\controllers;
 
+use backend\filters\RbacFilter;
 use flyok666\uploadifive\UploadAction;
 use backend\models\Goods;
 use backend\models\GoodsGallery;
@@ -85,6 +86,15 @@ class GoodsGalleryController extends \yii\web\Controller
                     $action->output['fileUrl'] = $action->getWebUrl();//输出文件的相对路径
                 },
             ],
+        ];
+    }
+
+    public function behaviors()
+    {
+        return [
+            'rbac'=>[
+                'class'=>RbacFilter::className()
+            ]
         ];
     }
 }

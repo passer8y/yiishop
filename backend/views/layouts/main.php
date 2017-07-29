@@ -35,16 +35,31 @@ AppAsset::register($this);
             'class' => 'navbar-inverse navbar-fixed-top',
         ],
     ]);
-    $menuItems = [
-        ['label' => '首页', 'url' => ['/site/index']],
-        ['label' => '品牌列表', 'url' => ['/brand/index']],
-        ['label' => '文章管理', 'url' => ['/article/index']],
-        ['label' => '商品管理', 'url' => ['/goods/index']],
-        ['label' => '管理员列表', 'url' => ['/user/index']],
-    ];
     if (Yii::$app->user->isGuest) {
         $menuItems[] = ['label' => '登录', 'url' => ['/user/login']];
     } else {
+        $menuItems = [];
+        //得到所有一级分类
+        $menus = \backend\models\Menu::find()->where(['=','parent_id','1'])->all();
+        //遍历一级分类
+        foreach($menus as $menu){
+
+            $items = [];
+            //根据父类找到子类
+            $children = \backend\models\Menu::find()->where(['=','parent_id',$menu->id])->all();
+            foreach($children as $child){
+                //判断当前用户是否有该路由的权限
+                if(Yii::$app->user->can($child->url)){
+                    $items[] = ['label'=>$child->name,'url'=>[$child->url]];
+                }
+            }
+            if(!empty($items)){
+                //一级菜单
+                $menuItems[] = ['label' => $menu->name, 'items' => $items];
+            }
+        }
+
+
         $menuItems[] = '<li>'
             . Html::beginForm(['/user/logout'], 'post')
             . Html::submitButton(
