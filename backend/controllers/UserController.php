@@ -3,6 +3,7 @@
 namespace backend\controllers;
 
 
+use backend\filters\RbacFilter;
 use backend\models\LoginForm;
 use backend\models\PasswordForm;
 use backend\models\User;
@@ -104,7 +105,7 @@ class UserController extends Controller
                 //登录成功
                 \Yii::$app->session->setFlash('success','登录成功');
                 //跳转
-                return $this->redirect(['user/index']);
+                return $this->redirect(['site/index']);
             }
         }
         return $this->render('login',['model'=>$model]);
@@ -112,7 +113,7 @@ class UserController extends Controller
     public function actionLogout()
     {
         \Yii::$app->user->logout();
-        return $this->redirect(['user/index']);
+        return $this->redirect(['user/login']);
     }
     //修改自己的密码
     public function actionPassword()
@@ -149,5 +150,13 @@ class UserController extends Controller
         }
     }
 
-
+    public function behaviors()
+    {
+        return [
+            'rbac'=>[
+                'class'=>RbacFilter::className(),
+                'only'=>['index','add','edit','del'],
+            ]
+        ];
+    }
 }

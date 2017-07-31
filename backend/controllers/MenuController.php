@@ -61,12 +61,12 @@ class MenuController extends Controller
         }
     }
 
-    public function behaviors()
-    {
-        return [
-            'rbac'=>[
-                'class'=>RbacFilter::className()
-            ]
-        ];
-    }
+//    public function behaviors()
+//    {
+//        return [
+//            'rbac'=>[
+//                'class'=>RbacFilter::className()
+//            ]
+//        ];
+//    }
 }
