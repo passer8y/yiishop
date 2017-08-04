@@ -88,10 +88,10 @@
 					<tbody>
 					<?php $delivery = new \frontend\models\Order()?>
 					<?php foreach($delivery::$deliveries as $v ):?>
-						<tr>
+						<tr class="">
 							<!--							<tr class="cur">	-->
 							<td>
-								<input type="radio" name="Order[deliveries_id]" value="<?=$v['id']?>"/><?=$v['name']?>
+								<input type="radio" name="Order[deliveries_id]" value="<?=$v['id']?>" /><?=$v['name']?>
 							</td>
 							<td>￥<?=$v['price']?></td>
 							<td><?=$v['intro']?></td>
@@ -204,8 +204,8 @@
 		</div>
 		<div class="fillin_ft">
 
-			<?= \yii\helpers\Html::a('',['index/order']) ?>
-			<p>应付总额：<strong>￥<?=$total?>元</strong></p>
+			<input type="submit" value="">
+			<p>应付总额：<strong>￥<?=$total?></strong></p>
 
 		</div>
 
