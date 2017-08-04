@@ -44,7 +44,19 @@ return [
             'rules' => [
             ],
         ],
-
+        'sms'=>[
+            'class'=>\frontend\components\AliyunSms::className(),
+            'accessKeyId'=>'LTAIinS9GYHuDhjk',
+            'accessKeySecret'=>'13703wDOgxqgZBgY2iNyaGqJMImowl',
+            'signName'=>'赵世金',
+            'templateCode'=>'SMS_80130048',
+        ],
+        'redis' => [
+            'class' => 'yii\redis\Connection',
+            'hostname' => 'localhost',
+            'port' => 6379,
+            'database' => 0,
+        ],
     ],
     'params' => $params,
 ];

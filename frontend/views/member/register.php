@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html >
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
@@ -48,7 +48,7 @@
 		</div>
 		<div class="login_bd">
 			<div class="login_form fl">
-				<?php $form = \yii\widgets\ActiveForm::begin(['id'=>'login_form']) ?>
+				<?php $form = \yii\widgets\ActiveForm::begin() ?>
 					<ul>
 						<li id="username">
 							<label for="">用户名：</label>
@@ -72,19 +72,17 @@
 						</li>
 						<li id="tel">
 							<label for="">手机号码：</label>
-							<input type="text" class="txt" value="" name="Member[tel]"  placeholder=""/>
-							<p></p>
+							<input type="text" id='telnum'class="txt" value="" name="Member[tel]"  placeholder=""/>
+							<P></P>
 						</li>
-						<li id="captcha">
+						<li id="capt">
 							<label for="">验证码：</label>
-							<input type="text" class="txt" value="" placeholder="请输入短信验证码" name="captcha" disabled="disabled" id="captcha"/> <input type="button" onclick="bindPhoneNum(this)" id="get_captcha" value="获取验证码" style="height: 25px;padding:3px 8px"/>
+							<input type="text" class="txt" value="" placeholder="请输入短信验证码" name="Member[captcha]" disabled="disabled" id="captcha"/> <input type="button" onclick="bindPhoneNum(this)" id="get_captcha" value="获取验证码" style="height: 25px;padding:3px 8px"/>
 							<p></p>
 						</li>
 						<li class="checkcode" id="code">
-							<?= $form->field($model,'code')->widget(\yii\captcha\Captcha::className()) ?>
-
+							<?=$form->field($model,'code')->widget(\yii\captcha\Captcha::className());?>
 						</li>
-						
 						<li>
 							<label for="">&nbsp;</label>
 							<input type="checkbox" class="chb" checked="checked" /> 我已阅读并同意《用户注册协议》
@@ -137,6 +135,13 @@
 	<script type="text/javascript" src="<?= Yii::getAlias('@web') ?>/js/jquery-1.8.3.min.js"></script>
 	<script type="text/javascript">
 		function bindPhoneNum(){
+			var telnum = $('#telnum').val();
+			if(telnum){
+				$.getJSON('/member/test',{"tel":telnum},function(data){
+					console.log(data);
+				});
+			}
+
 			//启用输入框
 			$('#captcha').prop('disabled',false);
 
@@ -153,8 +158,10 @@
 				}
 				
 				$('#get_captcha').val(html);
+
 			},1000);
 		}
+
 		<?php
 			if($model->hasErrors()){
 				foreach($model->errors as $name=>$error){
@@ -162,7 +169,13 @@
 				}
 			}
 		?>
-
+		//更换验证码
+		$("#member-code-image").click(function(){
+			$.getJSON('/site/captcha?refresh=1',function(json){
+				$("#member-code-image").attr('src',json.url);
+				//console.log(json.url);
+			});
+		});
 	</script>
 </body>
 </html>

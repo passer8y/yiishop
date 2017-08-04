@@ -1,11 +1,11 @@
 /*
-@功能：购物车页面js
-@作者：diamondwang
-@时间：2013年11月14日
-*/
+ @功能：购物车页面js
+ @作者：diamondwang
+ @时间：2013年11月14日
+ */
 
 $(function(){
-	
+
 	//减少
 	$(".reduce_num").click(function(){
 		var amount = $(this).parent().find(".amount");
@@ -24,6 +24,8 @@ $(function(){
 		});
 
 		$("#total").text(total.toFixed(2));
+		var goods_id = $(this).closest('tr').attr('data-id');
+		changeNum(goods_id,amount.val());
 	});
 
 	//增加
@@ -40,6 +42,8 @@ $(function(){
 		});
 
 		$("#total").text(total.toFixed(2));
+		var goods_id = $(this).closest('tr').attr('data-id');
+		changeNum(goods_id,amount.val());
 	});
 
 	//直接输入
@@ -58,6 +62,20 @@ $(function(){
 		});
 
 		$("#total").text(total.toFixed(2));
-
+		var goods_id = $(this).closest('tr').attr('data-id');
+		changeNum(goods_id,$(this).val());
 	});
+	var total = 0;
+	$(".col5 span").each(function(){
+		total += parseFloat($(this).text());
+	});
+
+	$("#total").text(total.toFixed(2));
+
 });
+
+var changeNum = function(goods_id,amount){
+	$.post('ajax-cart',{goods_id:goods_id,amount:amount},function(data){
+		console.log(data);
+	});
+};

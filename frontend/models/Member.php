@@ -28,6 +28,7 @@ class Member extends ActiveRecord implements IdentityInterface
     public $re_password;  //确认密码
     public $code;  //验证码
     public $auto;  //自动登录
+    public $captcha;  //手机短信验证码
     /**
      * @inheritdoc
      */
@@ -43,11 +44,11 @@ class Member extends ActiveRecord implements IdentityInterface
     {
         return [
             [['username','password_hash'],'required','message'=>'{attribute}不能为空'],
-            [['re_password','email','tel'],'required','message'=>'{attribute}不能为空','on'=>self::SCENARIO_REGISTER],
+            [['re_password','email','tel','captcha'],'required','message'=>'{attribute}不能为空','on'=>self::SCENARIO_REGISTER],
             [['last_login_time', 'last_login_ip', 'status', 'created_at', 'updated_at'], 'integer'],
             [['username'], 'string', 'max' => 50],
             ['auto','safe'],
-            ['code','required','message'=>'{attribute}不能为空'],
+            ['code','captcha'],
             [['auth_key'], 'string', 'max' => 32,'on'=>self::SCENARIO_REGISTER],
             [['password_hash', 'email'], 'string', 'max' => 100],
             [['tel'], 'string', 'max' => 11,'on'=>self::SCENARIO_REGISTER],

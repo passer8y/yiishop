@@ -53,7 +53,7 @@ class Address extends \yii\db\ActiveRecord
             'area' => '所在地区',
             'address' => '详细地址',
             'tel' => '手机号码',
-            'status' => '默认地址 1:默认,0:正常',
+            'status' => '是否是默认地址',
         ];
     }
 }

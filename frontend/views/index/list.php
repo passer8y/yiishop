@@ -2,25 +2,25 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-	<title>收货地址</title>
+	<title>商品列表页</title>
 	<link rel="stylesheet" href="<?= Yii::getAlias('@web') ?>/style/base.css" type="text/css">
 	<link rel="stylesheet" href="<?= Yii::getAlias('@web') ?>/style/global.css" type="text/css">
 	<link rel="stylesheet" href="<?= Yii::getAlias('@web') ?>/style/header.css" type="text/css">
-	<link rel="stylesheet" href="<?= Yii::getAlias('@web') ?>/style/home.css" type="text/css">
-	<link rel="stylesheet" href="<?= Yii::getAlias('@web') ?>/style/address.css" type="text/css">
+	<link rel="stylesheet" href="<?= Yii::getAlias('@web') ?>/style/list.css" type="text/css">
+	<link rel="stylesheet" href="<?= Yii::getAlias('@web') ?>/style/common.css" type="text/css">
 	<link rel="stylesheet" href="<?= Yii::getAlias('@web') ?>/style/bottomnav.css" type="text/css">
 	<link rel="stylesheet" href="<?= Yii::getAlias('@web') ?>/style/footer.css" type="text/css">
-
+	
 	<script type="text/javascript" src="<?= Yii::getAlias('@web') ?>/js/jquery-1.8.3.min.js"></script>
 	<script type="text/javascript" src="<?= Yii::getAlias('@web') ?>/js/header.js"></script>
-	<script type="text/javascript" src="<?= Yii::getAlias('@web') ?>/js/home.js"></script>
+	<script type="text/javascript" src="<?= Yii::getAlias('@web') ?>/js/list.js"></script>
 </head>
 <body>
-		<!-- 顶部导航 start -->
+	<!-- 顶部导航 start -->
 	<div class="topnav">
 		<div class="topnav_bd w1210 bc">
 			<div class="topnav_left">
-
+				
 			</div>
 			<div class="topnav_right fr">
 				<ul>
@@ -35,7 +35,7 @@
 		</div>
 	</div>
 	<!-- 顶部导航 end -->
-
+	
 	<div style="clear:both;"></div>
 
 	<!-- 头部 start -->
@@ -52,7 +52,7 @@
 					</form>
 					<div class="form_right fl"></div>
 				</div>
-
+				
 				<div style="clear:both;"></div>
 
 				<div class="hot_search">
@@ -124,23 +124,23 @@
 			<!-- 购物车 end -->
 		</div>
 		<!-- 头部上半部分 end -->
-
+		
 		<div style="clear:both;"></div>
 
 		<!-- 导航条部分 start -->
 		<div class="nav w1210 bc mt10">
 			<!--  商品分类部分 start-->
 			<div class="category fl cat1"> <!-- 非首页，需要添加cat1类 -->
-				<div class="cat_hd">  <!-- 注意，首页在此div上只需要添加cat_hd类，非首页，默认收缩分类时添加上off类，鼠标滑过时展开菜单则将off类换成on类 -->
+				<div class="cat_hd off">  <!-- 注意，首页在此div上只需要添加cat_hd类，非首页，默认收缩分类时添加上off类，并将cat_bd设置为不显示，鼠标滑过时展开菜单则将off类换成on类 -->
 					<h2>全部商品分类</h2>
 					<em></em>
 				</div>
-
+				
 				<div class="cat_bd none">
-
+					
 					<div class="cat item1">
 						<h3><a href="">图像、音像、数字商品</a> <b></b></h3>
-						<div class="cat_detail">
+						<div class="cat_detail none">
 							<dl class="dl_1st">
 								<dt><a href="">电子书</a></dt>
 								<dd>
@@ -150,7 +150,7 @@
 									<a href="">婚恋/两性</a>
 									<a href="">文学</a>
 									<a href="">经管</a>
-									<a href="">畅读VIP</a>
+									<a href="">畅读VIP</a>						
 								</dd>
 							</dl>
 
@@ -185,7 +185,7 @@
 									<a href="">传纪</a>
 									<a href="">艺术</a>
 									<a href="">经管</a>
-									<a href="">畅读VIP</a>
+									<a href="">畅读VIP</a>						
 								</dd>
 							</dl>
 
@@ -264,7 +264,7 @@
 									<a href="">洗衣机</a>
 									<a href="">热水器</a>
 									<a href="">DVD</a>
-									<a href="">烟机/灶具</a>
+									<a href="">烟机/灶具</a>						
 								</dd>
 							</dl>
 
@@ -277,7 +277,7 @@
 									<a href="">饮水机</a>
 									<a href="">净水设备</a>
 									<a href="">吸尘器</a>
-									<a href="">电风扇</a>
+									<a href="">电风扇</a>						
 								</dd>
 							</dl>
 
@@ -290,7 +290,7 @@
 									<a href="">咖啡机</a>
 									<a href="">微波炉</a>
 									<a href="">电磁炉</a>
-									<a href="">电水壶</a>
+									<a href="">电水壶</a>						
 								</dd>
 							</dl>
 
@@ -303,7 +303,7 @@
 									<a href="">足浴盆</a>
 									<a href="">血压计</a>
 									<a href="">体温计</a>
-									<a href="">血糖仪</a>
+									<a href="">血糖仪</a>						
 								</dd>
 							</dl>
 
@@ -316,7 +316,7 @@
 									<a href="">龙头</a>
 									<a href="">门铃</a>
 									<a href="">电器开关</a>
-									<a href="">插座</a>
+									<a href="">插座</a>						
 								</dd>
 							</dl>
 						</div>
@@ -325,84 +325,84 @@
 					<div class="cat">
 						<h3><a href="">手机、数码</a><b></b></h3>
 						<div class="cat_detail none">
-
+							
 						</div>
 					</div>
 
 					<div class="cat">
 						<h3><a href="">电脑、办公</a><b></b></h3>
 						<div class="cat_detail none">
-
+							
 						</div>
 					</div>
-
+					
 					<div class="cat">
 						<h3><a href="">家局、家具、家装、厨具</a><b></b></h3>
 						<div class="cat_detail none">
-
+							
 						</div>
 					</div>
-
+					
 					<div class="cat">
 						<h3><a href="">服饰鞋帽</a><b></b></h3>
 						<div class="cat_detail none">
-
+							
 						</div>
 					</div>
-
+					
 					<div class="cat">
 						<h3><a href="">个护化妆</a><b></b></h3>
 						<div class="cat_detail none">
-
+							
 						</div>
 					</div>
-
+					
 					<div class="cat">
 						<h3><a href="">礼品箱包、钟表、珠宝</a><b></b></h3>
 						<div class="cat_detail none">
-
+							
 						</div>
 					</div>
 
 					<div class="cat">
 						<h3><a href="">运动健康</a><b></b></h3>
 						<div class="cat_detail none">
-
+							
 						</div>
 					</div>
 
 					<div class="cat">
 						<h3><a href="">汽车用品</a><b></b></h3>
 						<div class="cat_detail none">
-
+							
 						</div>
 					</div>
-
+					
 					<div class="cat">
 						<h3><a href="">母婴、玩具乐器</a><b></b></h3>
 						<div class="cat_detail none">
-
+							
 						</div>
 					</div>
 
 					<div class="cat">
 						<h3><a href="">食品饮料、保健食品</a><b></b></h3>
 						<div class="cat_detail none">
-
+							
 						</div>
 					</div>
 
 					<div class="cat">
 						<h3><a href="">彩票、旅行、充值、票务</a><b></b></h3>
 						<div class="cat_detail none">
-
+							
 						</div>
 					</div>
 
 				</div>
 
 			</div>
-			<!--  商品分类部分 end-->
+			<!--  商品分类部分 end--> 
 
 			<div class="navitems fl">
 				<ul class="fl">
@@ -423,114 +423,312 @@
 
 	<div style="clear:both;"></div>
 
-	<!-- 页面主体 start -->
-	<div class="main w1210 bc mt10">
-		<div class="crumb w1210">
-			<h2><strong>我的XX </strong><span>> 我的订单</span></h2>
+	<!-- 列表主体 start -->
+	<div class="list w1210 bc mt10">
+		<!-- 面包屑导航 start -->
+		<div class="breadcrumb">
+			<h2>当前位置：<a href="">首页</a> > <a href="">电脑、办公</a></h2>
 		</div>
+		<!-- 面包屑导航 end -->
 
-		<!-- 左侧导航菜单 start -->
-		<div class="menu fl">
-			<h3>我的XX</h3>
-			<div class="menu_wrap">
-				<dl>
-					<dt>订单中心 <b></b></dt>
-					<dd><b>.</b><a href="">我的订单</a></dd>
-					<dd><b>.</b><a href="">我的关注</a></dd>
-					<dd><b>.</b><a href="">浏览历史</a></dd>
-					<dd><b>.</b><a href="">我的团购</a></dd>
-				</dl>
-
-				<dl>
-					<dt>账户中心 <b></b></dt>
-					<dd class="cur"><b>.</b><a href="">账户信息</a></dd>
-					<dd><b>.</b><a href="">账户余额</a></dd>
-					<dd><b>.</b><a href="">消费记录</a></dd>
-					<dd><b>.</b><a href="">我的积分</a></dd>
-					<dd><b>.</b><a href="">收货地址</a></dd>
-				</dl>
-
-				<dl>
-					<dt>订单中心 <b></b></dt>
-					<dd><b>.</b><a href="">返修/退换货</a></dd>
-					<dd><b>.</b><a href="">取消订单记录</a></dd>
-					<dd><b>.</b><a href="">我的投诉</a></dd>
-				</dl>
-			</div>
-		</div>
-		<!-- 左侧导航菜单 end -->
-
-		<!-- 右侧内容区域 start -->
-		<div class="content fl ml10">
-			<div class="address_hd">
-				<h3>收货地址薄</h3>
-				<?php foreach($address as $add): ?>
-				<dl>
-					<dt><?=$add->name?> &nbsp; <?=$add->area?> &nbsp; <?=$add->address?> &nbsp; <?=$add->tel?> </dt>
-					<dd>
-						<?= \yii\bootstrap\Html::a('修改',['member/address-edit','id'=>$add->id]) ?>&nbsp;
-						<?= \yii\bootstrap\Html::a('删除',['member/address-del','id'=>$add->id]) ?>&nbsp;
-						<?= \yii\bootstrap\Html::a('设为默认地址',['member/address-re','id'=>$add->id]) ?>
-					</dd>
-				</dl>
-				<?php endforeach; ?>
-			</div>
-
-			<div class="address_bd mt10">
-				<h4>新增收货地址</h4>
-				<form action="" name="address_form" method="post">
+		<!-- 左侧内容 start -->
+		<div class="list_left fl mt10">
+			<!-- 分类列表 start -->
+			<div class="catlist">
+				<h2>电脑、办公</h2>
+				<div class="catlist_wrap">
+					<div class="child">
+						<h3 class="on"><b></b>电脑整机</h3>
 						<ul>
-							<li id="name">
-								<label for=""><span>*</span>收 货 人：</label>
-								<input type="text" name="Address[name]" class="txt" value="<?= $model->name ?>" />
-								<p style="color: red; padding-left: 6em"></p>
-							</li>
-							<li id="area">
-								<label for=""><span>*</span>所在地区：</label>
-								<select id="province" name="Address[province]">
-									<option>请选择省份</option>
-								</select>
-								<select id="city" name="Address[city]">
-									<option>请选择城市</option>
-								</select>
-								<select id="areas" name="Address[areas]">
-									<option>请选择区县</option>
-								</select>
-							</li>
-							<li id="address">
-								<label for=""><span>*</span>详细地址：</label>
-								<input type="text" name="Address[address]" class="txt address"  value="<?= $model->address ?>" />
-								<p  style="color: red; padding-left: 6em"></p>
-							</li>
-							<li id="tel">
-								<label for=""><span>*</span>手机号码：</label>
-								<input type="text" name="Address[tel]" class="txt"  value="<?= $model->tel ?>"/>
-								<p style="color: red; padding-left: 6em"></p>
-							</li>
-							<li>
-								<label for="">&nbsp;</label>
-								<?php $form = \yii\widgets\ActiveForm::begin() ?>
-								<?= $form->field($model,'status')->checkbox([1=>'默认',0=>'正常']) ?><br />
-								<?php \yii\widgets\ActiveForm::end() ?>
+							<li><a href="">笔记本</a></li>
+							<li><a href="">超极本</a></li>
+							<li><a href="">平板电脑</a></li>
+						</ul>
+					</div>
 
-							</li><br/>
-							<li>
-								<label for="">&nbsp;</label>
-								<input type="submit" name="" class="btn" value="保存" />
+					<div class="child">
+						<h3><b></b>电脑配件</h3>
+						<ul class="none">
+							<li><a href="">CPU</a></li>
+							<li><a href="">主板</a></li>
+							<li><a href="">显卡</a></li>
+						</ul>
+					</div>
+
+					<div class="child">
+						<h3><b></b>办公打印</h3>
+						<ul class="none">
+							<li><a href="">打印机</a></li>
+							<li><a href="">一体机</a></li>
+							<li><a href="">投影机</a></li>
 							</li>
 						</ul>
-					</form>
+					</div>
+
+					<div class="child">
+						<h3><b></b>网络产品</h3>
+						<ul class="none">
+							<li><a href="">路由器</a></li>
+							<li><a href="">网卡</a></li>
+							<li><a href="">交换机</a></li>
+							</li>
+						</ul>
+					</div>
+
+					<div class="child">
+						<h3><b></b>外设产品</h3>
+						<ul class="none">
+							<li><a href="">鼠标</a></li>
+							<li><a href="">键盘</a></li>
+							<li><a href="">U盘</a></li>
+						</ul>
+					</div>
+				</div>
+				
+				<div style="clear:both; height:1px;"></div>
 			</div>
+			<!-- 分类列表 end -->
+				
+			<div style="clear:both;"></div>	
+
+			<!-- 新品推荐 start -->
+			<div class="newgoods leftbar mt10">
+				<h2><strong>新品推荐</strong></h2>
+				<div class="leftbar_wrap">
+					<ul>
+						<li>
+							<dl>
+								<dt><a href=""><img src="<?= Yii::getAlias('@web') ?>/images/list_hot1.jpg" alt="" /></a></dt>
+								<dd><a href="">美即流金丝语悦白美颜新年装4送3</a></dd>
+								<dd><strong>￥777.50</strong></dd>
+							</dl>
+						</li>
+
+						<li>
+							<dl>
+								<dt><a href=""><img src="<?= Yii::getAlias('@web') ?>/images/list_hot2.jpg" alt="" /></a></dt>
+								<dd><a href="">领券满399减50 金斯利安多维片</a></dd>
+								<dd><strong>￥239.00</strong></dd>
+							</dl>
+						</li>
+
+						<li class="last">
+							<dl>
+								<dt><a href=""><img src="<?= Yii::getAlias('@web') ?>/images/list_hot3.jpg" alt="" /></a></dt>
+								<dd><a href="">皮尔卡丹pierrecardin 男士长...</a></dd>
+								<dd><strong>￥1240.50</strong></dd>
+							</dl>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<!-- 新品推荐 end -->
+
+			<!--热销排行 start -->
+			<div class="hotgoods leftbar mt10">
+				<h2><strong>热销排行榜</strong></h2>
+				<div class="leftbar_wrap">
+					<ul>
+						<li></li>
+					</ul>
+				</div>
+			</div>
+			<!--热销排行 end -->
+
+			<!-- 最近浏览 start -->
+			<div class="viewd leftbar mt10">
+				<h2><a href="">清空</a><strong>最近浏览过的商品</strong></h2>
+				<div class="leftbar_wrap">
+					<dl>
+						<dt><a href=""><img src="<?= Yii::getAlias('@web') ?>/images/hpG4.jpg" alt="" /></a></dt>
+						<dd><a href="">惠普G4-1332TX 14英寸笔记...</a></dd>
+					</dl>
+
+					<dl class="last">
+						<dt><a href=""><img src="<?= Yii::getAlias('@web') ?>/images/crazy4.jpg" alt="" /></a></dt>
+						<dd><a href="">直降200元！TCL正1.5匹空调</a></dd>
+					</dl>
+				</div>
+			</div>
+			<!-- 最近浏览 end -->
+		</div>
+		<!-- 左侧内容 end -->
+	
+		<!-- 列表内容 start -->
+		<div class="list_bd fl ml10 mt10">
+			<!-- 热卖、促销 start -->
+			<div class="list_top">
+				<!-- 热卖推荐 start -->
+				<div class="hotsale fl">
+					<h2><strong><span class="none">热卖推荐</span></strong></h2>
+					<ul>
+						<li>
+							<dl>
+								<dt><a href=""><img src="<?= Yii::getAlias('@web') ?>/images/hpG4.jpg" alt="" /></a></dt>
+								<dd class="name"><a href="">惠普G4-1332TX 14英寸笔记本电脑 （i5-2450M 2G 5</a></dd>
+								<dd class="price">特价：<strong>￥2999.00</strong></dd>
+								<dd class="buy"><span>立即抢购</span></dd>
+							</dl>
+						</li>
+
+						<li>
+							<dl>
+								<dt><a href=""><img src="<?= Yii::getAlias('@web') ?>/images/list_hot3.jpg" alt="" /></a></dt>
+								<dd class="name"><a href="">ThinkPad E42014英寸笔记本电脑</a></dd>
+								<dd class="price">特价：<strong>￥4199.00</strong></dd>
+								<dd class="buy"><span>立即抢购</span></dd>
+							</dl>
+						</li>
+
+						<li>
+							<dl>
+								<dt><a href=""><img src="<?= Yii::getAlias('@web') ?>/images/acer4739.jpg" alt="" /></a></dt>
+								<dd class="name"><a href="">宏碁AS4739-382G32Mnkk 14英寸笔记本电脑</a></dd>
+								<dd class="price">特价：<strong>￥2799.00</strong></dd>
+								<dd class="buy"><span>立即抢购</span></dd>
+							</dl>
+						</li>
+					</ul>
+				</div>
+				<!-- 热卖推荐 end -->
+
+				<!-- 促销活动 start -->
+				<div class="promote fl">
+					<h2><strong><span class="none">促销活动</span></strong></h2>
+					<ul>
+						<li><b>.</b><a href="">DIY装机之向雷锋同志学习！</a></li>
+						<li><b>.</b><a href="">京东宏碁联合促销送好礼！</a></li>
+						<li><b>.</b><a href="">台式机笔记本三月巨惠！</a></li>
+						<li><b>.</b><a href="">富勒A53g智能人手识别鼠标</a></li>
+						<li><b>.</b><a href="">希捷硬盘白色情人节专场</a></li>
+					</ul>
+
+				</div>
+				<!-- 促销活动 end -->
+			</div>
+			<!-- 热卖、促销 end -->
+			
+			<div style="clear:both;"></div>
+			
+			<!-- 商品筛选 start -->
+			<div class="filter mt10">
+				<h2><a href="">重置筛选条件</a> <strong>商品筛选</strong></h2>
+				<div class="filter_wrap">
+					<dl>
+						<dt>品牌：</dt>
+						<dd class="cur"><a href="">不限</a></dd>
+						<dd><a href="">联想（ThinkPad）</a></dd>
+						<dd><a href="">联想（Lenovo）</a></dd>
+						<dd><a href="">宏碁（acer）</a></dd>
+						<dd><a href="">华硕（ASUS）</a></dd>
+						<dd><a href="">戴尔（DELL）</a></dd>
+						<dd><a href="">索尼（SONY）</a></dd>
+						<dd><a href="">惠普（HP）</a></dd>
+						<dd><a href="">三星（SAMSUNG）</a></dd>
+						<dd><a href="">优派（ViewSonic）</a></dd>
+						<dd><a href="">苹果（Apple）</a></dd>
+						<dd><a href="">富士通（Fujitsu）</a></dd>
+					</dl>
+
+					<dl>
+						<dt>价格：</dt>
+						<dd class="cur"><a href="">不限</a></dd>
+						<dd><a href="">1000-1999</a></dd>
+						<dd><a href="">2000-2999</a></dd>
+						<dd><a href="">3000-3499</a></dd>
+						<dd><a href="">3500-3999</a></dd>
+						<dd><a href="">4000-4499</a></dd>
+						<dd><a href="">4500-4999</a></dd>
+						<dd><a href="">5000-5999</a></dd>
+						<dd><a href="">6000-6999</a></dd>
+						<dd><a href="">7000-7999</a></dd>
+					</dl>
+
+					<dl>
+						<dt>尺寸：</dt>
+						<dd class="cur"><a href="">不限</a></dd>
+						<dd><a href="">10.1英寸及以下</a></dd>
+						<dd><a href="">11英寸</a></dd>
+						<dd><a href="">12英寸</a></dd>
+						<dd><a href="">13英寸</a></dd>
+						<dd><a href="">14英寸</a></dd>
+						<dd><a href="">15英寸</a></dd>
+					</dl>
+
+					<dl class="last">
+						<dt>处理器：</dt>
+						<dd class="cur"><a href="">不限</a></dd>
+						<dd><a href="">intel i3</a></dd>
+						<dd><a href="">intel i5</a></dd>
+						<dd><a href="">intel i7</a></dd>
+						<dd><a href="">AMD A6</a></dd>
+						<dd><a href="">AMD A8</a></dd>
+						<dd><a href="">AMD A10</a></dd>
+						<dd><a href="">其它intel平台</a></dd>
+					</dl>
+				</div>
+			</div>
+			<!-- 商品筛选 end -->
+			
+			<div style="clear:both;"></div>
+
+			<!-- 排序 start -->
+			<div class="sort mt10">
+				<dl>
+					<dt>排序：</dt>
+					<dd class="cur"><a href="">销量</a></dd>
+					<dd><a href="">价格</a></dd>
+					<dd><a href="">评论数</a></dd>
+					<dd><a href="">上架时间</a></dd>
+				</dl>
+			</div>
+			<!-- 排序 end -->
+			
+			<div style="clear:both;"></div>
+
+			<!-- 商品列表 start-->
+			<div class="goodslist mt10">
+				<ul>
+					<?php foreach($models as $model): ?>
+					<li>
+						<dl>
+							<dt><a href="goods?id=<?= $model->id ?>"><img src="http://admin.yiishop.com<?= $model->logo ?>" alt="" /></a></dt>
+							<dd><a href="goods?id=<?= $model->id ?>"><?= $model->name ?></a></dt>
+							<dd><strong><?= $model->shop_price ?></strong></dt>
+							<dd><a href="goods?id=<?= $model->id ?>"><em>已有10人评价</em></a></dt>
+						</dl>
+					</li>
+					<?php endforeach; ?>
+				</ul>
+			</div>
+			<!-- 商品列表 end-->
+
+			<!-- 分页信息 start -->
+			<div class="page mt20">
+				<a href="">首页</a>
+				<a href="">上一页</a>
+				<a href="">1</a>
+				<a href="">2</a>
+				<a href="" class="cur">3</a>
+				<a href="">4</a>
+				<a href="">5</a>
+				<a href="">下一页</a>
+				<a href="">尾页</a>&nbsp;&nbsp; 
+				<span>
+					<em>共8页&nbsp;&nbsp;到第 <input type="text" class="page_num" value="3"/> 页</em>
+					<a href="" class="skipsearch" href="javascript:;">确定</a>
+				</span>
+			</div>
+			<!-- 分页信息 end -->
 
 		</div>
-		<!-- 右侧内容区域 end -->
+		<!-- 列表内容 end -->
 	</div>
-	<!-- 页面主体 end-->
+	<!-- 列表主体 end-->
 
 	<div style="clear:both;"></div>
-
 	<!-- 底部导航 start -->
-	<div class="bottomnav w1210 bc mt10">
+	<div class="bottomnav w1210 bc mt20">
 		<div class="bnav1">
 			<h3><b></b> <em>购物指南</em></h3>
 			<ul>
@@ -542,7 +740,7 @@
 				<li><a href="">联系客服</a></li>
 			</ul>
 		</div>
-
+		
 		<div class="bnav2">
 			<h3><b></b> <em>配送方式</em></h3>
 			<ul>
@@ -554,7 +752,7 @@
 			</ul>
 		</div>
 
-
+		
 		<div class="bnav3">
 			<h3><b></b> <em>支付方式</em></h3>
 			<ul>
@@ -609,7 +807,7 @@
 			<a href="">京西论坛</a>
 		</p>
 		<p class="copyright">
-			 © 2005-2013 京东网上商城 版权所有，并保留所有权利。  ICP备案证书号:京ICP证070359号
+			 © 2005-2013 京东网上商城 版权所有，并保留所有权利。  ICP备案证书号:京ICP证070359号 
 		</p>
 		<p class="auth">
 			<a href=""><img src="<?= Yii::getAlias('@web') ?>/images/xin.png" alt="" /></a>
@@ -619,62 +817,7 @@
 		</p>
 	</div>
 	<!-- 底部版权 end -->
-		<script type="text/javascript">
-			//jQuery加载
-			$(function(){
-				//页面加载完毕就获取省份列表
-				var url = '/address/db.php';
-				var args = 'pid=0';
-				$.getJSON(url,args,function(data){
-					//将省级数据放入province中
-					$(data).each(function(i,v){
-						var html = '<option value="'+v.name+'" id="'+v.id+'" >'+v.name+'</option>'
-						$(html).appendTo($('#province'));
 
-					})
-				})
-				//选择省的时候联动
-				$('#province').on('change',function(){
-					//选择省的时候清空市
-					document.getElementById('city').length = 1;
-					document.getElementById('areas').length = 1;
-					//得到选中的省的下标
-					var id = $('#province option:selected').attr('id');
-					args = {"pid":id};
-//					console.debug(args);
-					$.getJSON(url,args,function(data){
-						//将市级数据放入city中
-						$(data).each(function(i,v){
-							var html = '<option value="'+v.name+'" id="'+v.id+'">'+v.name+'</option>'
-							$(html).appendTo($('#city'));
-						})
-					})
-				})
-				//选择市的时候联动
-				$('#city').on('change',function(){
-					//选择市的时候清空区县
-					document.getElementById('areas').length = 1;
-					//得到选中的市的下标
-					var id = $('#city option:selected').attr('id');
-					args = {"pid":id};
-//					console.debug(args);
-					$.getJSON(url,args,function(data){
-						//将区县数据放入area中
-						$(data).each(function(i,v){
-							var html = '<option value="'+v.name+'" id="'+v.id+'">'+v.name+'</option>'
-							$(html).appendTo($('#areas'));
-						})
-					})
-				})
-			})
 
-			<?php
-				if($model->hasErrors()){
-					foreach($model->errors as $name=>$error){
-						echo '$("#'.$name.' p").text("'.implode(',',$error).'");';
-					}
-				}
-			?>
-		</script>
 </body>
 </html>
